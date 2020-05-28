@@ -1,0 +1,33 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<div class="mat-elevation-z8">
+
+  <mat-table mat-table [dataSource]="dataSource" matSort>
+    <!-- Position Column -->
+    <ng-container matColumnDef="cardOwnerName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> cardOwnerName </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.cardOwnerName}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="cardNumber">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> cardNumber </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.cardNumber}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="expirationDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> expirationDate </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.expirationDate}} </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row (click)="logData(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+<!-- <mat-paginator [pageSize]="2" [pageSizeOptions]="[2, 4, 6, 10, 20]" (page)="pageChanged($event)">
+</mat-paginator> -->

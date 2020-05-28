@@ -1,0 +1,6 @@
+    this.service.refreshList().subscribe(results => {
+      if(!results){
+        return;
+      }
+      this.dataSource = new MatTableDataSource(results);
+    })

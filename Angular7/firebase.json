@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "itshredeploy",
+    "public": "dist/Angular7",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
